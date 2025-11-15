@@ -1,0 +1,25 @@
+name: Integração Continua
+
+on: 
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checando codigo
+        uses: actions/checkout@v3
+
+      - name: Using Python3
+        uses: actions/setup-Python3@v3
+        with:
+          python-version: 3.12.x
+
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Configurar Docker Build
+        uses: docker/setup-buildx-action@v3
