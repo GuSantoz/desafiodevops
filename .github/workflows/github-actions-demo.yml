@@ -14,7 +14,7 @@ on:
     branches: [ "main" ]
   
   # Permite executar manualmente pela aba "Actions" do GitHub
-  workflow_dispatch:
+  #workflow_dispatch:
 
 # ---
 # ETAPA DE DEFINIÇÃO DOS JOBS
@@ -30,16 +30,17 @@ jobs:
 
     steps:
       # 1. Baixa o código
-      - name: Checkout do código
-        uses: actions/checkout@v4
+      # - name: Checkout do código
+      #   uses: actions/checkout@v4
+      #   run: test_app
 
       # 2. Configura o QEMU (necessário para builds multi-plataforma)
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+      # - name: Set up QEMU
+      #   uses: docker/setup-qemu-action@v3
 
       # 3. Configura o Docker Buildx (builder moderno do Docker)
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      # - name: Set up Docker Buildx
+      #   uses: docker/setup-buildx-action@v3
 
       # 4. (Opcional) Login no Docker Hub ou GitHub Container Registry
       # Descomente as linhas abaixo se quiser publicar a imagem
